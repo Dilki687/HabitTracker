@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/habitList">
+
+    <fragment
+        android:id="@+id/createHabitsItem"
+        android:name="com.example.habittracker.ui.fragments.createhabit.CreateHabitsItem"
+        android:label="Create habit"
+        tools:layout="@layout/fragment_create_habits_item">
+        <action
+            android:id="@+id/action_createHabitsItem_to_habitList"
+            app:destination="@id/habitList" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/habitList"
+        android:name="com.example.habittracker.ui.fragments.habitlist.HabitList"
+        android:label="Habits"
+        tools:layout="@layout/fragment_habit_list">
+        <action
+            android:id="@+id/action_habitList_to_createHabitsItem"
+            app:destination="@id/createHabitsItem" />
+        <action
+            android:id="@+id/action_habitList_to_updateHabitItem2"
+            app:destination="@id/updateHabitItem2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateHabitItem2"
+        android:name="com.example.habittracker.ui.fragments.updatehabit.UpdateHabitItem"
+        android:label="Update habit"
+        tools:layout="@layout/fragment_update_habit_item">
+        <action
+            android:id="@+id/action_updateHabitItem2_to_habitList"
+            app:destination="@id/habitList" />
+        <argument
+            android:name="selectedHabit"
+            app:argType="com.example.habittracker.data.models.Habit" />
+    </fragment>
+
+</navigation>
